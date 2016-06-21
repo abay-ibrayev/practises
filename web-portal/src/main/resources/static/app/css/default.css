@@ -1,0 +1,20 @@
+html, body {
+	font-family: arial;
+}
+
+main {
+	display: block; /* for IE */
+	width: 800px;
+	border: 1px solid #909092;
+	background-color: #B7B8BA;
+	border-radius: 10px;
+	margin: 15px;
+	padding: 5px 15px 15px 15px;
+	box-sizing: border-box;
+}
+
+main > header {
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
