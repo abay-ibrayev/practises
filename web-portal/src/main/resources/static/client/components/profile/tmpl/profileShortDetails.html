@@ -1,0 +1,21 @@
+<section>
+    <div class="componentsPanel panel">
+        <div class="row">
+            <div class="col-sm-6 col-md-7 profileInfo">
+                <h3 ng-bind="profile.party.displayName"></h3>
+                <p><span>Директор</span> - <span ng-bind="profile.generalManager.fullName"></span></p>
+                <p ng-repeat="e in profile.employees">
+                    <span ng-bind="e.position"></span> - <span ng-bind="e.fullName"></span>
+                </p>
+                <p>Статус - Ответственный поставщик</p>
+            </div>
+            <div class="col-sm-6 col-md-5 profileInfo">
+                <h3>РЕКВИЗИТЫ</h3>
+                <p ng-repeat="r in profile.party.requisites">
+                    <span ng-bind="r.name"></span> - <span ng-bind="r.value"></span>
+                </p>
+                <p><span>Адрес</span> - <span ng-bind="profile.party.addressString"></span></p>
+            </div>
+        </div>
+    </div>
+</section>

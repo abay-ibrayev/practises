@@ -1,0 +1,21 @@
+<h3>Order History</h3>
+<section class="customerHistory">
+	<table class="customerOrders">
+		<thead>
+			<tr>
+				<th>Order</th>
+				<th>Date</th>
+				<th class="orderTotal">Total</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="rec in custHist">
+				<td class="orderData">{{rec.orderNumber}}</td>
+				<td class="orderData">{{rec.date}}</td>
+				<td class="orderTotal">{{rec.total}}</td>
+				<td class="orderStatus">{{rec.status}}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

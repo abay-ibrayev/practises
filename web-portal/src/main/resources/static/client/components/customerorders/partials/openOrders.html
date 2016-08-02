@@ -1,0 +1,27 @@
+<section>
+	<h2>Open Orders</h2>
+
+	<table class="customerOrders">
+		<thead>
+			<tr>
+				<th>Order</th>
+				<th>Date</th>
+				<th>Company</th>
+				<th>Total</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="rorder in recentOrders">
+				<td class="orderData">{{rorder.orderNumber}}</td>
+				<td class="orderData">{{rorder.date}}</td>
+				<td class="orderData">{{rorder.name}}</td>
+				<td class="orderTotal">{{rorder.total}}</td>
+				<td class="orderData" ng-class="rorder.status == 'On Hold' ? 'orderOnHold' : ''">{{rorder.status}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p class="orderStatusMsg">Note: Questions about orders that have been cancelled or are on hold, </br> contact the warehouse at 555-555-7979</p>
+
+</section>

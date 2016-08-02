@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1" author="lgdt">
+        <createTable tableName="purchasing_parties">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="short_name" type="varchar(255)"/>
+            <column name="full_name" type="varchar(255)"/>
+            <column name="phone_type" type="varchar(20)"/>
+            <column name="phone_country_code" type="varchar(10)"/>
+            <column name="phone_region_op_code" type="varchar(10)"/>
+            <column name="phone_local_number" type="varchar(20)"/>
+            <column name="web_site_address" type="varchar(50)"/>
+        </createTable>
+        <createSequence sequenceName="purchasing_parties_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+    <changeSet id="2" author="lgdt">
+        <createTable tableName="purchasing_parties_parent_child">
+            <column name="parent_id" type="bigint"/>
+            <column name="child_id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="purchasing_parties_parent_child"
+                                 baseColumnNames="parent_id" constraintName="fk_purchasing_parties_parent_id"
+                                 referencedTableName="purchasing_parties" referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint baseTableName="purchasing_parties_parent_child"
+                                 baseColumnNames="child_id" constraintName="fk_purchasing_parties_child_id"
+                                 referencedTableName="purchasing_parties" referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="3" author="lgdt">
+        <createTable tableName="procurement_plans">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="start_date" type="date"/>
+            <column name="finish_date" type="date"/>
+            <column name="owner_id" type="bigint"/>
+        </createTable>
+        <createSequence sequenceName="procurement_plans_seq" startValue="1" incrementBy="1"/>
+        <addForeignKeyConstraint baseTableName="procurement_plans"
+                                 baseColumnNames="owner_id" constraintName="fk_purchasing_parties_owner_id"
+                                 referencedTableName="purchasing_parties" referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="4" author="lgdt">
+        <createTable tableName="procurement_items">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="item_no" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gsw_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gsw_unique_number" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gsw_type" type="integer"/>
+            <column name="gsw_short_description" type="varchar(4000)"/>
+            <column name="gsw_additional_description" type="varchar(255)"/>
+            <column name="start_date" type="date"/>
+            <column name="finish_date" type="date"/>
+            <column name="item_amount" type="integer"/>
+            <column name="measurement_unit" type="varchar(50)"/>
+            <column name="payment_conditions" type="integer"/>
+            <column name="marketing_unit_price" type="numeric(19,2)"/>
+            <column name="total_cost" type="numeric(19,2)"/>
+            <column name="total_cost_vat" type="numeric(19,2)"/>
+            <column name="comments" type="varchar(255)"/>
+            <column name="procurement_plan_id" type="bigint"/>
+        </createTable>
+        <createSequence sequenceName="procurement_items_seq" startValue="1" incrementBy="1"/>
+        <addForeignKeyConstraint baseTableName="procurement_items"
+                                 baseColumnNames="procurement_plan_id" constraintName="fk_procurement_plans_id"
+                                 referencedTableName="procurement_plans" referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="5" author="lgdt">
+        <createTable tableName="business_entity_types">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="short_name" type="varchar(10)"/>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

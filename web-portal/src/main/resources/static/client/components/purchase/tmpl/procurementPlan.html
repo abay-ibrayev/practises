@@ -1,0 +1,48 @@
+<section ui-view="profile"></section>
+<section>
+    <div class="componentsPanel">
+        <div class="row procurementItemsHeader">
+            <div class="col-sm-6 col-md-4 purchaser">
+                <h1 ng-bind="purchaser.shortName"></h1>
+            </div>
+            <div class="col-sm-6 col-md-8">
+                <div class="emptyBlock"></div>
+                <div class="searchBlock">
+                    <input class="form-control" placeholder="Поиск..." type="search" ng-model="query"/>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped procurementItems"
+               search-watch-model="query" st-table="displayedCollection" st-safe-src="procurementPlan.items">
+            <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Прогноз. период</th>
+                <th>Маркетинг. цена за ед. без НДС</th>
+                <th>Количество</th>
+                <th>Общая стоимость</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in displayedCollection">
+                <td class="col-md-5 gswItem">
+                    <a href="#" ng-click="showItem(item)">{{item.gswName}}</a>
+                    <span>{{item.gswShortDescription}}</span>
+                    <span>{{item.gswAdditionalDescription}}</span>
+                </td>
+                <td class="col-md-2">{{item.period}}</td>
+                <td class="col-md-2">{{item.marketingUnitPrice}}</td>
+                <td class="col-md-1">{{item.itemAmount}}</td>
+                <td class="col-md-2">{{item.totalCost}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5" class="text-center">
+                    <div st-pagination="" st-items-by-page="50"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>

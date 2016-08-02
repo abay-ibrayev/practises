@@ -1,0 +1,27 @@
+<dataset>
+    <purchasing_parties id="1" short_name="JSC Alfa" />
+
+    <procurement_plans id="1" start_date="2016-01-01" finish_date="2016-12-31" owner_id="1"/>
+
+    <procurement_items id="1" start_date="2016-10-01" finish_date="2016-12-31" procurement_plan_id="1"
+                       item_no="1" gsw_unique_number="1000000" gsw_name="Pencils" payment_conditions="0"
+                       measurement_unit="item" item_amount="1000" marketing_unit_price="100.00"
+                       total_cost="100000.00" total_cost_VAT="112000.00" comments="text"/>
+    <procurement_items id="2" start_date="2016-10-01" finish_date="2016-12-31" procurement_plan_id="1"
+                       item_no="2" gsw_unique_number="1000001" gsw_name="Pens" payment_conditions="0"
+                       measurement_unit="item" item_amount="2000" marketing_unit_price="110.00"
+                       total_cost="220000.00" total_cost_VAT="246400.00" comments="text"/>
+
+    <purchasing_parties id="2" short_name="JSC Beta" />
+
+    <procurement_plans id="2" start_date="2016-01-01" finish_date="2016-12-31" owner_id="2"/>
+
+    <procurement_items id="3" start_date="2016-10-01" finish_date="2016-12-31" procurement_plan_id="2"
+                       item_no="1" gsw_unique_number="1000000" gsw_name="Pencils" payment_conditions="0"
+                       measurement_unit="item" item_amount="1000" marketing_unit_price="110.00"
+                       total_cost="110000.00" total_cost_VAT="123200.00" comments="text"/>
+    <procurement_items id="4" start_date="2016-10-01" finish_date="2016-12-31" procurement_plan_id="2"
+                       item_no="2" gsw_unique_number="1000001" gsw_name="Pens" payment_conditions="0"
+                       measurement_unit="item" item_amount="2000" marketing_unit_price="100.00"
+                       total_cost="200000.00" total_cost_VAT="240000.00" comments="text"/>
+</dataset>

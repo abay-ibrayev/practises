@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${app.db.host}:${app.db.port}/${app.db.name}
+    username: gbk
+    password: gbk
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy

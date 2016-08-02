@@ -1,0 +1,20 @@
+<section>
+    <ol class="breadcrumb">
+        <li ng-repeat="item in purchasersHierarchy">
+            <a ng-if="!$last" href="#" ui-sref="purchasers({ purchaserId:item.id })">{{item.label}}</a>
+            <span class="active" ng-show="$last">{{item.label}}</span>
+        </li>
+    </ol>
+    <div class="componentsPanel">
+        <div class="row" ng-repeat="row in purchasersAsTwoDimArray">
+            <div class="col-sm-6 col-md-3" ng-repeat="p in row">
+                <div class="thumbnail">
+                    <img src="client/assets/images/sk_logo.png" alt="...">
+                    <div class="caption purchaserData">
+                        <a href="#" ui-sref="purchasers({ purchaserId:p.id })">{{p.shortName}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

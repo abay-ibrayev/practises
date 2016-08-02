@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1" author="lgdt">
+        <insert tableName="business_entity_types">
+            <column name="id" value="1"/>
+            <column name="short_name" value="АО"/>
+            <column name="name" value="Акционерное общество"/>
+        </insert>
+        <insert tableName="business_entity_types">
+            <column name="id" value="2"/>
+            <column name="short_name" value="ТОО"/>
+            <column name="name" value="Товарищество с ограниченной отвественностью"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="lgdt">
+        <insert tableName="purchasing_parties">
+            <column name="id" value="1"/>
+            <column name="short_name" value="ФНБ «САМРУК-ҚАЗЫНА»"/>
+            <column name="full_name" value="ФОНД НАЦИОНАЛЬНОГО БЛАГОСОСТОЯНИЯ «САМРУК-ҚАЗЫНА»"/>
+            <column name="phone_type" value="WORK"/>
+            <column name="phone_country_code" value="+7"/>
+            <column name="phone_region_op_code" value="7172"/>
+            <column name="phone_local_number" value="554001"/>
+            <column name="web_site_address" value="sk.kz"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="2"/>
+            <column name="short_name" value="ТОО «Қамқор Менеджмент»"/>
+            <column name="full_name" value="«Қамқор Менеджмент»"/>
+            <column name="phone_type" value="WORK"/>
+            <column name="phone_country_code" value="+7"/>
+            <column name="phone_region_op_code" value="7172"/>
+            <column name="phone_local_number" value="612018"/>
+            <column name="web_site_address" value="www.kamkor.org/"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="3"/>
+            <column name="short_name" value="НК «КТЖ»"/>
+            <column name="full_name" value="НАЦИОНАЛЬНАЯ КОМПАНИЯ «КАЗАКСТАН ТЕМIР ЖОЛЫ»"/>
+            <column name="phone_type" value="WORK"/>
+            <column name="phone_country_code" value="+7"/>
+            <column name="phone_region_op_code" value="7172"/>
+            <column name="phone_local_number" value="554001"/>
+            <column name="web_site_address" value="sk.kz"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="4"/>
+            <column name="short_name" value="АО «Казтранссервис»"/>
+            <column name="full_name" value="АО «Казтранссервис»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="5"/>
+            <column name="short_name" value="АО «Пассажирские перевозки»"/>
+            <column name="full_name" value="АО «Пассажирские перевозки»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="6"/>
+            <column name="short_name" value="АО «Вокзал-сервис»"/>
+            <column name="full_name" value="АО «Вокзал-сервис»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="7"/>
+            <column name="short_name" value="АО «Транстелеком»"/>
+            <column name="full_name" value="АО «Транстелеком»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="8"/>
+            <column name="short_name" value="АО «ВЖДО»"/>
+            <column name="full_name" value="АО «Военизированная железнодорожная охрана»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="9"/>
+            <column name="short_name" value="АО «Қазтеміртранс»"/>
+            <column name="full_name" value="АО «Қазтеміртранс»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="10"/>
+            <column name="short_name" value="АО «Локомотив»"/>
+            <column name="full_name" value="АО «Локомотив»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="11"/>
+            <column name="short_name" value="АО «Теміржолсу»"/>
+            <column name="full_name" value="АО «Теміржолсу»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="12"/>
+            <column name="short_name" value="АО «Локомотивный сервисный центр»"/>
+            <column name="full_name" value="АО «Локомотивный сервисный центр»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="13"/>
+            <column name="short_name" value="АО «Алматинский вагоноремонтный завод»"/>
+            <column name="full_name" value="АО «Алматинский вагоноремонтный завод»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="14"/>
+            <column name="short_name" value="АО «Ремлокомотив»"/>
+            <column name="full_name" value="АО «Ремлокомотив»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="15"/>
+            <column name="short_name" value="АО «KTZ Express»"/>
+            <column name="full_name" value="АО «KTZ Express»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="16"/>
+            <column name="short_name" value="АО «Казахская академия транспорта и коммуникаций»"/>
+            <column name="full_name" value="АО «Казахская академия транспорта и коммуникаций»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="17"/>
+            <column name="short_name" value="АО «Локомотив құрастыру зауыты»"/>
+            <column name="full_name" value="АО «Локомотив құрастыру зауыты»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="18"/>
+            <column name="short_name" value="АО «Logistic System Management B.V.»"/>
+            <column name="full_name" value="АО «Logistic System Management B.V.»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="19"/>
+            <column name="short_name" value="АО «Досжан темір жолы»"/>
+            <column name="full_name" value="АО «Досжан темір жолы»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="20"/>
+            <column name="short_name" value="АО «Каскор-Транссервис»"/>
+            <column name="full_name" value="АО «Каскор-Транссервис»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="21"/>
+            <column name="short_name" value="АО «Магистраль - Қызметі»"/>
+            <column name="full_name" value="АО «Магистраль - Қызметі»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="22"/>
+            <column name="short_name" value="АО «Научно-исследовательский институт транспорта»"/>
+            <column name="full_name" value="АО «Научно-исследовательский институт транспорта»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="23"/>
+            <column name="short_name" value="АО «Ремонтная корпорация «Қамқор»"/>
+            <column name="full_name" value="АО «Ремонтная корпорация «Қамқор»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="24"/>
+            <column name="short_name" value="АО «Международный центр приграничного сотрудничества «Хоргос»"/>
+            <column name="full_name" value="АО «Международный центр приграничного сотрудничества «Хоргос»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="25"/>
+            <column name="short_name" value="АО «НК «Актауский международный морской торговый порт»"/>
+            <column name="full_name" value="АО «Национальная компания «Актауский международный морской торговый порт»"/>
+        </insert>
+
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="1"/>
+            <column name="child_id" value="3"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="4"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="5"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="6"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="7"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="8"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="9"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="10"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="11"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="12"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="13"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="14"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="15"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="16"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="17"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="18"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="19"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="20"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="21"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="22"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="23"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="24"/>
+        </insert>
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="3"/>
+            <column name="child_id" value="25"/>
+        </insert>
+
+        <alterSequence sequenceName="purchasing_parties_seq" startValue="26" incrementBy="1"/>
+    </changeSet>
+</databaseChangeLog>

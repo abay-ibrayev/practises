@@ -1,0 +1,18 @@
+<!-- customer header -->
+<h1 ng-bind="custInfo.name"></h1>
+<h4>Customer # <span ng-bind="custInfo.custNum"></span></h4>
+
+<!-- region for contact info -->
+<section ui-view="contact"></section>
+
+<!-- region for customer history -->
+<section ui-view="history"></section>
+
+<!-- nested view navigation -->
+<nav class="customerInfoNav">
+	<a ui-sref=".shipping">View Shipping Info</a> 
+	<a ui-sref=".billing">View Billing Info</a>
+</nav>
+
+<!-- region to display nested shipping and billing info -->
+<section ui-view></section>

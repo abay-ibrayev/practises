@@ -1,0 +1,34 @@
+<section>
+    <ol class="breadcrumb">
+        <ol class="breadcrumb">
+            <li ng-repeat="item in purchasersHierarchy">
+                <a ng-if="!$last" href="#" ui-sref="purchasers({ purchaserId:item.id })">{{item.label}}</a>
+                <span class="active" ng-show="$last">{{item.label}}</span>
+            </li>
+        </ol>
+    </ol>
+    <div class="componentsPanel">
+        <table st-table="displayedPurchasers" st-safe-src="purchasersList" class="table table-striped"
+               ng-show="showPurchasers">
+            <thead>
+            <tr>
+                <th>Название компании</th>
+                <th>Web-сайт</th>
+                <th colspan="2">Контакты</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="p in displayedPurchasers">
+                <td class="purchaserData col-md-5"><a href="#" ui-sref="purchasers({ purchaserId:p.id })">{{p.shortName}}</a></td>
+                <td class="purchaserData col-md-3">{{p.webSiteAddress}}</td>
+                <td class="purchaserData col-md-3">{{p.phoneNumber}}</td>
+                <td class="purchaserData col-md-1">
+                    <button type="button" class="btn btn-sm" aria-label="Left Align" ng-click="viewProcurementPlan(p)">
+                        <span class="glyphicon glyphicon-align-justify planView" aria-hidden="true"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

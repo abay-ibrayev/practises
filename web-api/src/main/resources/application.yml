@@ -1,0 +1,25 @@
+app:
+  db:
+    host: localhost
+    port: 5432
+    name: eprocurement
+
+  paths:
+    uploadedFiles: /tmp/eprocurement/uploads
+
+server:
+  port: 9000
+
+spring:
+  main:
+    banner-mode: off
+  profiles:
+    active: production
+
+liquibase:
+  change-log: classpath:db/changelog/db.changelog-master.xml
+  drop-first: false
+
+multipart:
+  max-file-size: 25Mb
+  max-request-size: 30Mb

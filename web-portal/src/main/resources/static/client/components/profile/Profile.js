@@ -1,0 +1,1 @@
+angular.module('EProc.Profile', ['EProc.Common']);

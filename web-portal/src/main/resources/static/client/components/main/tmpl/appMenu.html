@@ -1,0 +1,9 @@
+<section id="navList" ng-controller="AppMenuCtrl">
+    <ul class="nav nav-sidebar">
+        <li ng-repeat="mItem in menuItems">
+            <a ui-sref="{{mItem.path}}" ui-sref-opts="{reload: true}">
+                {{mItem.label}}
+            </a>
+        </li>
+    </ul>
+</section>

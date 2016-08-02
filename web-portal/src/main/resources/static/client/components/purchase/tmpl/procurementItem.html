@@ -1,0 +1,11 @@
+<section>
+    <div class="componentsPanel">
+        <div class="row" ng-repeat="attr in itemAttrs">
+            <div class="col-md-6"><span class="textLabel" ng-bind="attr.name"></span></div>
+            <div class="col-md-6"><span class="textLabel" ng-bind="attr.value"></span></div>
+        </div>
+
+        <button class="btn btn-success" type="button" ng-click="ok()">В закладки</button>
+        <button class="btn btn-default" type="button" ng-click="cancel()">Закрыть</button>
+    </div>
+</section>
