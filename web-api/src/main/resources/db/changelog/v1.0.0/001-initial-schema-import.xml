@@ -91,4 +91,39 @@
             <column name="name" type="varchar(255)"/>
         </createTable>
     </changeSet>
+    <changeSet id="6" author="lgdt">
+        <createTable tableName="tenders">
+            <column name="id" type="bigint"/>
+            <column name="tender_id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="company_name" type="varchar(4000)"/>
+            <column name="tender_name" type="varchar(4000)"/>
+            <column name="tender_method" type="varchar(4000)"/>
+            <column name="tender_start" type="date"/>
+            <column name="tender_end" type="date"/>
+            <column name="tender_status" type="varchar(4000)"/>
+        </createTable>
+        <createSequence sequenceName="tenders_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+    <changeSet id="7" author="lgdt">
+        <createTable tableName="tender_lots">
+            <column name="id" type="bigint"/>
+            <column name="tender_id" type="bigint"/>
+            <column name="lot_id" type="bigint"/>
+            <column name="lot_name" type="varchar(4000)"/>
+            <column name="lot_desc" type="varchar(4000)"/>
+            <column name="lot_quantity" type="numeric(19,2)"/>
+            <column name="lot_price" type="numeric(19,2)"/>
+            <column name="lot_sum" type="numeric(19,2)"/>
+            <column name="lot_place" type="varchar(4000)"/>
+            <column name="lot_timeframe" type="varchar(4000)"/>
+            <column name="lot_condition" type="varchar(4000)"/>
+        </createTable>
+        <createSequence sequenceName="tender_lots_seq" startValue="1" incrementBy="1"/>
+        <addForeignKeyConstraint baseTableName="tender_lots"
+                                 baseColumnNames="tender_id" constraintName="fk_tender_lots"
+                                 referencedTableName="tenders" referencedColumnNames="tender_id"/>
+    </changeSet>
+
 </databaseChangeLog>
