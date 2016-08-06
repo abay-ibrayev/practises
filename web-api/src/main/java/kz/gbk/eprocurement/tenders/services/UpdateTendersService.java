@@ -47,7 +47,7 @@ public class UpdateTendersService {
                     logger.info("SAVE TO DATABASE TENDER " +tender.getTenderId()+ " " + tender.getTenderName());
                     tenderRepository.saveAndFlush(tender);
                 }
-                System.out.println(" HERE WE STOP");
+                logger.info(" HERE WE STOP");
                 break;
             }
             for(Tender tender : myList){
