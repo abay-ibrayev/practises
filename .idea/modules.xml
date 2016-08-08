@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gbk-eprocurement.iml" filepath="$PROJECT_DIR$/.idea/modules/gbk-eprocurement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-api/web-api.iml" filepath="$PROJECT_DIR$/.idea/modules/web-api/web-api.iml" group="web-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-api/web-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web-api/web-api_main.iml" group="web-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-api/web-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web-api/web-api_test.iml" group="web-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-portal/web-portal.iml" filepath="$PROJECT_DIR$/.idea/modules/web-portal/web-portal.iml" group="web-portal" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-portal/web-portal_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web-portal/web-portal_main.iml" group="web-portal" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-portal/web-portal_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web-portal/web-portal_test.iml" group="web-portal" />
+    </modules>
+  </component>
+</project>

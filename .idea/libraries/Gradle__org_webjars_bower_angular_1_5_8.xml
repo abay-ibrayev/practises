@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.bower:angular:1.5.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.bower/angular/1.5.8/98f8f43ca564bc62f39bb7df0922005f2e09282b/angular-1.5.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.bower/angular/1.5.8/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/angular-1.5.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

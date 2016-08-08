@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.webjars.bower:angular-animate:1.5.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.bower/angular-animate/1.5.7/55c78fae53f73e276c92f6dbd47167960dd7ae60/angular-animate-1.5.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.webjars.bower/angular-animate/1.5.7/b04f3ee8f5e43fa3b162981b50bb72fe1acabb33/angular-animate-1.5.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
