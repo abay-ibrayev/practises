@@ -1,11 +1,13 @@
 package kz.gbk.eprocurement.purchase.input.readers;
 
 import kz.gbk.eprocurement.purchase.input.ProcurementPlanLoadSettings;
+import kz.gbk.eprocurement.purchase.input.ProcurementPlanLoadStatus;
 import kz.gbk.eprocurement.purchase.model.ProcurementItemAttr;
 import kz.gbk.eprocurement.purchase.model.ProcurementPlan;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,12 +43,13 @@ public class ProcurementPlanExcelReaderTest {
         attributeToColumnNameMapping.put(ProcurementItemAttr.ATTR_TOTAL_COST_VAT, "U");
         attributeToColumnNameMapping.put(ProcurementItemAttr.ATTR_COMMENTS, "X");
 
-        settings.setAttributeToColumnNameMapping(attributeToColumnNameMapping);
+        settings.setColumnMapping(attributeToColumnNameMapping);
 
         ClassPathResource resource = new ClassPathResource("kz/gbk/eprocurement/purchase/input/readers/sample_plan.xls");
 
-        ProcurementPlan plan = reader.readProcurementPlan(resource.getInputStream(), settings);
+        ProcurementPlanLoadStatus loadStatus = reader.readProcurementPlan(resource.getInputStream(), settings);
 
+        ProcurementPlan plan = loadStatus.getProcurementPlan();
         assertNotNull(plan);
 
         assertEquals(794, plan.getItems().size());

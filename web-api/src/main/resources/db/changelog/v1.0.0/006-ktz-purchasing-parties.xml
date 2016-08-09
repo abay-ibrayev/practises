@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1" author="lgdt">
+        <insert tableName="purchasing_parties">
+            <column name="id" value="26"/>
+            <column name="short_name" value="ТОО «KTS-Khorgos»"/>
+            <column name="full_name" value="ТОО «KTS-Khorgos»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="27"/>
+            <column name="short_name" value="ТОО «Eurotranzit - КТС»"/>
+            <column name="full_name" value="ТОО «Eurotranzit - КТС»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="28"/>
+            <column name="short_name" value="СП «YuXinOu (Chongjing) Logistics Co. Ltd»"/>
+            <column name="full_name" value="СП «YuXinOu (Chongjing) Logistics Co. Ltd»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="29"/>
+            <column name="short_name" value="АО «Пригородные перевозки»"/>
+            <column name="full_name" value="АО «Пригородные перевозки»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="30"/>
+            <column name="short_name" value="АО «Вагонсервис»"/>
+            <column name="full_name" value="АО «Вагонсервис»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties">
+            <column name="id" value="31"/>
+            <column name="short_name" value="АО «Пассажирская лизинговая вагонная компания»"/>
+            <column name="full_name" value="АО «Пассажирская лизинговая вагонная компания»"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="4"/>
+            <column name="child_id" value="26"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="4"/>
+            <column name="child_id" value="27"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="4"/>
+            <column name="child_id" value="28"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="5"/>
+            <column name="child_id" value="29"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="5"/>
+            <column name="child_id" value="30"/>
+        </insert>
+
+        <insert tableName="purchasing_parties_parent_child">
+            <column name="parent_id" value="5"/>
+            <column name="child_id" value="31"/>
+        </insert>
+
+        <alterSequence sequenceName="purchasing_parties_seq" startValue="32" incrementBy="1"/>
+    </changeSet>
+</databaseChangeLog>

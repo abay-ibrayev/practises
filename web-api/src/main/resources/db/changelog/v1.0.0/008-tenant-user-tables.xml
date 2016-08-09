@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="20160808-008-1" author="lgdt">
+        <createTable tableName="tenants">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="role" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+
+            <column name="created_on" type="datetime"/>
+            <column name="created_by" type="varchar(36)"/>
+
+            <column name="active" type="boolean"/>
+            <column name="hidden" type="boolean"/>
+        </createTable>
+
+        <createTable tableName="users">
+            <column name="id" type="varchar(36)">
+                <constraints nullable="false" primaryKey="false"/>
+            </column>
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)"/>
+            <column name="role" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="varchar(255)"/>
+            <column name="active" type="boolean"/>
+
+            <column name="tenant_id" type="varchar(36)"/>
+
+            <column name="job_position" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20160808-008-2" author="lgdt">
+        <insert tableName="users">
+            <column name="id" value="f2c0b284-5d3e-11e6-8b77-86f30ca893d3" />
+            <column name="username" value="marat.karakhanov@gmail.com" />
+            <column name="password" value="123456" />
+            <column name="role" value="SYSTEM_ADMIN" />
+            <column name="full_name" value="Караханов М.К." />
+            <column name="active" valueBoolean="true" />
+            <column name="job_position" value="Software Developer" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>

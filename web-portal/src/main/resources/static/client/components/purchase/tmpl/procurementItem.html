@@ -1,11 +1,13 @@
-<section>
-    <div class="componentsPanel">
-        <div class="row" ng-repeat="attr in itemAttrs">
-            <div class="col-md-6"><span class="textLabel" ng-bind="attr.name"></span></div>
-            <div class="col-md-6"><span class="textLabel" ng-bind="attr.value"></span></div>
-        </div>
-
-        <button class="btn btn-success" type="button" ng-click="ok()">В закладки</button>
-        <button class="btn btn-default" type="button" ng-click="cancel()">Закрыть</button>
+<div class="modal-header">
+    <h3 class="modal-title">Информация по ТРУ</h3>
+</div>
+<div class="modal-body">
+    <div class="row" ng-repeat="attr in itemAttrs">
+        <div class="col-md-6"><span class="textLabel" ng-bind="attr.name"></span></div>
+        <div class="col-md-6"><span class="textLabel" ng-bind="attr.value"></span></div>
     </div>
-</section>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="ok()">В закладки</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">Закрыть</button>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="20160806-001" author="lgdt">
+        <addColumn tableName="procurement_items">
+            <column name="payment_conditions_text" type="varchar(255)" />
+            <column name="procurement_mode" type="varchar(20)" />
+            <column name="place_kato_code" type="varchar(100)" />
+            <column name="place_address_text" type="varchar(255)" />
+            <column name="delivery_destination" type="varchar(255)" />
+            <column name="delivery_conditions" type="varchar(255)" />
+            <column name="delivery_time_text" type="varchar(255)" />
+            <column name="local_content_forecast" type="varchar(255)" />
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

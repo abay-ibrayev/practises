@@ -6,4 +6,10 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
     <include file="001-initial-schema-import.xml" relativeToChangelogFile="true"/>
     <include file="002-init-reference-data.xml" relativeToChangelogFile="true"/>
+    <include file="003-procurement-plans-active-column.xml" relativeToChangelogFile="true"/>
+    <include file="004-extend-procurement-items-textlen.xml" relativeToChangelogFile="true"/>
+    <include file="005-procurement_plan_load_settings.xml" relativeToChangelogFile="true"/>
+    <include file="006-ktz-purchasing-parties.xml" relativeToChangelogFile="true"/>
+    <include file="007-procurement-items-new-columns.xml" relativeToChangelogFile="true"/>
+    <include file="008-tenant-user-tables.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

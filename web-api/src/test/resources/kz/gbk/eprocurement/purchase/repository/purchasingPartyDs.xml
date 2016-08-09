@@ -1,4 +1,6 @@
 <dataset>
     <purchasing_parties id="999999999" short_name="JSC Alfa" />
     <purchasing_parties_parent_child/>
+    <procurement_plans/>
+    <procurement_items/>
 </dataset>

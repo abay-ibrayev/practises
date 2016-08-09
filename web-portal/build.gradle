@@ -14,12 +14,21 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE'
+    }
+}
+
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-groovy-templates')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul')
 
     compile('org.webjars:jquery:2.2.4')
 	compile('org.webjars:bootstrap:3.3.7')
@@ -29,6 +38,10 @@ dependencies {
 	compile('org.webjars:angular-ui-router:0.2.18')
     compile('org.webjars.npm:angular-ui-bootstrap:2.0.0')
 	compile('org.webjars.bower:angular-smart-table:2.1.8')
+	compile('org.webjars.bower:angular-ui-uploader:1.1.1')
+
+    runtime('org.apache.httpcomponents:httpclient')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

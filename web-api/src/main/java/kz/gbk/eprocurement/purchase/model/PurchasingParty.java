@@ -1,6 +1,7 @@
 package kz.gbk.eprocurement.purchase.model;
 
 import kz.gbk.eprocurement.common.model.PhoneNumber;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 
@@ -34,6 +35,9 @@ public class PurchasingParty {
             inverseJoinColumns = {@JoinColumn(name = "parent_id")}
     )
     private PurchasingParty parent;
+
+    @Formula("(SELECT COUNT(pc.child_id) FROM purchasing_parties_parent_child pc WHERE pc.parent_id = id)")
+    private int childCount;
 
     public PurchasingParty(PurchasingParty parent) {
         this.parent = parent;
@@ -86,7 +90,17 @@ public class PurchasingParty {
         return parent;
     }
 
+    @SuppressWarnings("unused")
     private void setParent(PurchasingParty parent) {
         this.parent = parent;
+    }
+
+    public int getChildCount() {
+        return childCount;
+    }
+
+    @SuppressWarnings("unused")
+    private void setChildCount(int childCount) {
+        this.childCount = childCount;
     }
 }

@@ -1,0 +1,29 @@
+debug: true
+
+spring:
+  aop:
+    proxy-target-class: true
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:9000/backend/oauth/token
+      user-authorization-uri: http://localhost:9000/backend/oauth/authorize
+      client-id: tiin-web-portal
+      client-secret: 123456
+    resource:
+      user-info-uri: http://localhost:9000/backend/user
+
+zuul:
+  routes:
+    api:
+      path: /api/**
+      url: http://localhost:9000/backend/api
+    user:
+      path: /user/**
+      url: http://localhost:9000/backend/user
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

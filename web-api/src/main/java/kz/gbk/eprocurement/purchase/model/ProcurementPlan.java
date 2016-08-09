@@ -1,6 +1,9 @@
 package kz.gbk.eprocurement.purchase.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +22,8 @@ public class ProcurementPlan {
 
     @Temporal(TemporalType.DATE)
     private Date finishDate;
+
+    private boolean active;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "plan")
     private List<ProcurementItem> items = new ArrayList<>();
@@ -83,5 +88,33 @@ public class ProcurementPlan {
 
     public void addItems(List<ProcurementItem> itemsList) {
         itemsList.forEach((item) -> addItem(item));
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    @SuppressWarnings("unused")
+    private void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void activate(PurchasingParty owner) {
+        setOwner(owner);
+
+        setStartDate(Date.from(LocalDate.of(2016, Month.JANUARY, 1)
+                .atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        setFinishDate(Date.from(LocalDate.of(2016, Month.DECEMBER, 31)
+                .atStartOfDay(ZoneId.systemDefault()).toInstant()));
+
+        setActive(true);
+    }
+
+    public void deactivate() {
+        setActive(false);
+    }
+
+    public void assignTo(PurchasingParty owner) {
+        setOwner(owner);
     }
 }
