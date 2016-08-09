@@ -2,7 +2,7 @@ package kz.gbk.eprocurement.purchase.repository;
 
 import kz.gbk.eprocurement.common.model.PhoneNumber;
 import kz.gbk.eprocurement.purchase.model.PurchasingParty;
-import kz.gbk.eprocurement.web.api.context.PersistenceContextConfig;
+import kz.gbk.eprocurement.api.context.PersistenceContextConfig;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,5 +41,9 @@ public class PurchasingPartyRepositoryTest {
         List<PurchasingParty> purchasingParties = repository.findByParentIsNull();
 
         assertEquals(1, purchasingParties.size());
+
+        PurchasingParty party = purchasingParties.get(0);
+
+        assertEquals(1, party.getChildCount());
     }
 }

@@ -16,4 +16,6 @@ public interface ProcurementPlanRepository extends JpaRepository<ProcurementPlan
     ProcurementPlan findOne(Long id);
 
     List<ProcurementPlan> findByOwnerAndStartDateAndFinishDate(PurchasingParty party, Date startDate, Date endDate);
+
+    ProcurementPlan findOneByOwnerAndActiveTrue(PurchasingParty party);
 }

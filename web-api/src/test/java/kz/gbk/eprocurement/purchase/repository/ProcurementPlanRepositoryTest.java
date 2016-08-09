@@ -5,7 +5,7 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import kz.gbk.eprocurement.purchase.model.ProcurementItem;
 import kz.gbk.eprocurement.purchase.model.ProcurementPlan;
 import kz.gbk.eprocurement.purchase.model.PurchasingParty;
-import kz.gbk.eprocurement.web.api.context.PersistenceContextConfig;
+import kz.gbk.eprocurement.api.context.PersistenceContextConfig;
 import org.hibernate.LazyInitializationException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,6 +54,16 @@ public class ProcurementPlanRepositoryTest {
 
         assertNotNull(plans);
         assertEquals(1, plans.size());
+    }
+
+    @Test
+    public void shouldFindOneActiveByPurchasingParty() throws Exception {
+        PurchasingParty party = new PurchasingParty();
+        party.setId(1L);
+
+        ProcurementPlan plan = repository.findOneByOwnerAndActiveTrue(party);
+
+        assertNotNull(plan);
     }
 
     @Test(expected = LazyInitializationException.class)

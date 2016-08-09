@@ -9,17 +9,21 @@ app:
 
 server:
   port: 9000
+  context-path: /backend
 
 spring:
   main:
     banner-mode: off
   profiles:
     active: production
+  http:
+    multipart:
+      max-file-size: 25Mb
+      max-request-size: 30Mb
+
 
 liquibase:
   change-log: classpath:db/changelog/db.changelog-master.xml
   drop-first: false
 
-multipart:
-  max-file-size: 25Mb
-  max-request-size: 30Mb
+

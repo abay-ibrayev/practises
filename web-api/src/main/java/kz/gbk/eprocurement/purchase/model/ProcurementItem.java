@@ -40,6 +40,22 @@ public class ProcurementItem {
 
     private int paymentConditions;
 
+    private String paymentConditionsText;
+
+    private String procurementMode;
+
+    private String placeKatoCode;
+
+    private String placeAddressText;
+
+    private String deliveryDestination;
+
+    private String deliveryConditions;
+
+    private String deliveryTimeText;
+
+    private String localContentForecast;
+
     private String measurementUnit;
 
     private Integer itemAmount;
@@ -140,6 +156,70 @@ public class ProcurementItem {
         this.paymentConditions = paymentConditions;
     }
 
+    public String getPaymentConditionsText() {
+        return paymentConditionsText;
+    }
+
+    public void setPaymentConditionsText(String paymentConditionsText) {
+        this.paymentConditionsText = paymentConditionsText;
+    }
+
+    public String getProcurementMode() {
+        return procurementMode;
+    }
+
+    public void setProcurementMode(String procurementMode) {
+        this.procurementMode = procurementMode;
+    }
+
+    public String getPlaceKatoCode() {
+        return placeKatoCode;
+    }
+
+    public void setPlaceKatoCode(String placeKatoCode) {
+        this.placeKatoCode = placeKatoCode;
+    }
+
+    public String getPlaceAddressText() {
+        return placeAddressText;
+    }
+
+    public void setPlaceAddressText(String placeAddressText) {
+        this.placeAddressText = placeAddressText;
+    }
+
+    public String getDeliveryDestination() {
+        return deliveryDestination;
+    }
+
+    public void setDeliveryDestination(String deliveryDestination) {
+        this.deliveryDestination = deliveryDestination;
+    }
+
+    public String getDeliveryConditions() {
+        return deliveryConditions;
+    }
+
+    public void setDeliveryConditions(String deliveryConditions) {
+        this.deliveryConditions = deliveryConditions;
+    }
+
+    public String getDeliveryTimeText() {
+        return deliveryTimeText;
+    }
+
+    public void setDeliveryTimeText(String deliveryTimeText) {
+        this.deliveryTimeText = deliveryTimeText;
+    }
+
+    public String getLocalContentForecast() {
+        return localContentForecast;
+    }
+
+    public void setLocalContentForecast(String localContentForecast) {
+        this.localContentForecast = localContentForecast;
+    }
+
     public String getMeasurementUnit() {
         return measurementUnit;
     }
@@ -195,4 +275,6 @@ public class ProcurementItem {
     void setPlan(ProcurementPlan plan) {
         this.plan = plan;
     }
+
+
 }
