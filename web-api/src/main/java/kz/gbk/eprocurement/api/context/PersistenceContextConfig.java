@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"kz.gbk.eprocurement.purchase.repository", "kz.gbk.eprocurement.profile.repository"})
-@EntityScan({"kz.gbk.eprocurement.purchase.model", "kz.gbk.eprocurement.profile.model"})
+@EntityScan({"kz.gbk.eprocurement.purchase.model", "kz.gbk.eprocurement.profile.model", "kz.gbk.eprocurement.tenders.jparealization"})
 @Import({DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class PersistenceContextConfig {
 }
