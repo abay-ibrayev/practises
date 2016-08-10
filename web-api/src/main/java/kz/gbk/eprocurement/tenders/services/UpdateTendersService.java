@@ -1,5 +1,7 @@
 package kz.gbk.eprocurement.tenders.services;
 
+import kz.gbk.eprocurement.tenders.parsers.SKSiteLotParser;
+import kz.gbk.eprocurement.tenders.parsers.SKSiteTenderParser;
 import kz.gbk.eprocurement.tenders.repository.TenderRepository;
 import kz.gbk.eprocurement.tenders.model.Tender;
 import kz.gbk.eprocurement.tenders.model.TenderLot;
@@ -29,13 +31,13 @@ public class UpdateTendersService {
     private TenderRepository tenderRepository;
 
     @Autowired
-    private LotParser lotParser;
+    private SKSiteLotParser lotParser;
 
     @Autowired
-    private TenderParser tenderParser;
+    private SKSiteTenderParser tenderParser;
 
     public void update() throws IOException, ParseException {
-        long lastId = tenderRepository.getLastOneId();
+        Long lastId = tenderRepository.getLastOneId();
         Tender lastOne = null;
         int i = -10;
         while (true) {
@@ -53,7 +55,7 @@ public class UpdateTendersService {
             for(Tender tender : myList){
                 tenderRepository.saveAndFlush(tender);
             }
-            for (long link : tenderRepository.getAllTenderIds()) {
+            for (Long link : tenderRepository.getAllTenderIds()) {
                 try {
                     Tender tender = tenderRepository.findByTenderId(link);
 

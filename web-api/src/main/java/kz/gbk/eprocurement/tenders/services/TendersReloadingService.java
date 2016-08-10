@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -18,10 +19,10 @@ import java.util.List;
  * Created by abai on 06.08.2016.
  */
 @Component
+@Transactional
 public class TendersReloadingService {
 
     private static Logger logger = LoggerFactory.getLogger(TendersReloadingService.class);
-
     private static final String TENDER_URL = "http://tender.sk.kz/index.php/ru/negs/";
     private static final String TENDER_LOT_URL = "http://tender.sk.kz/index.php/ru/negs/show/";
 
@@ -36,7 +37,7 @@ public class TendersReloadingService {
     private TenderParser tenderParser;
 
     public void reload(int startPage, int endPage) throws IOException, ParseException {
-        long lastId = tenderRepository.getLastOneId();
+        Long lastId = tenderRepository.getLastOneId();
         tenderRepository.deleteAll();
         Tender lastOne= null;
         for (int i = startPage * 10; i <= endPage * 10; i += 10) {
@@ -47,7 +48,7 @@ public class TendersReloadingService {
                 tenderRepository.saveAndFlush(tender);
             }
         }
-        for (long link : tenderRepository.getAllTenderIds()) {
+        for (Long link : tenderRepository.getAllTenderIds()) {
             try {
                 Tender tender = tenderRepository.findByTenderId(link);
 

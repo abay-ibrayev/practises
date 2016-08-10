@@ -22,7 +22,7 @@ public class SKSiteLotParser implements LotParser {
     private static Logger logger = LoggerFactory.getLogger(SKSiteLotParser.class);
 
 
-    public List<TenderLot> parseLots(String url, long link) throws Exception{
+    public List<TenderLot> parseLots(String url, Long link) throws Exception{
         Document doc = Jsoup.connect(url+link).timeout(10*1000).get();
         List<TenderLot> manyLots = new ArrayList<>();
         for (Element table : doc.select("table[class=showtab]")) {

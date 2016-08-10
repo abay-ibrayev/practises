@@ -17,10 +17,11 @@ import java.security.Principal;
 @SpringBootApplication
 @ComponentScan(basePackages = {
         "kz.gbk.eprocurement.purchase",
-        "kz.gbk.eprocurement.api.controllers"
+        "kz.gbk.eprocurement.api.controllers",
+        "kz.gbk.eprocurement.tenders"
 })
-@Import({PersistenceContextConfig.class, WebSecurityConfig.class, OAuth2ServerConfig.class})
-//@Import({PersistenceContextConfig.class})
+//@Import({PersistenceContextConfig.class, WebSecurityConfig.class, OAuth2ServerConfig.class})
+@Import({PersistenceContextConfig.class})
 public class WebAPIMain extends WebMvcConfigurerAdapter {
     public static void main(String[] args) {
         SpringApplication.run(WebAPIMain.class, args);

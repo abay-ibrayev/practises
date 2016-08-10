@@ -93,9 +93,11 @@
     </changeSet>
     <changeSet id="6" author="lgdt">
         <createTable tableName="tenders">
-            <column name="id" type="bigint"/>
-            <column name="tender_id" type="bigint">
+            <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="tender_id" type="bigint">
+                <constraints nullable="false"/>
             </column>
             <column name="company_name" type="varchar(4000)"/>
             <column name="tender_name" type="varchar(4000)"/>
@@ -123,7 +125,7 @@
         <createSequence sequenceName="tender_lots_seq" startValue="1" incrementBy="1"/>
         <addForeignKeyConstraint baseTableName="tender_lots"
                                  baseColumnNames="tender_id" constraintName="fk_tender_lots"
-                                 referencedTableName="tenders" referencedColumnNames="tender_id"/>
+                                 referencedTableName="tenders" referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>

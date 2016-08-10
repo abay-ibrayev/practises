@@ -24,7 +24,7 @@ public class SKSiteTenderParser implements TenderParser {
     private static Logger logger = LoggerFactory.getLogger(SKSiteLotParser.class);
 
 
-    public List<Tender> parseTenders(String url, Tender lastOne, long lastID) throws IOException, ParseException {
+    public List<Tender> parseTenders(String url, Tender lastOne, Long lastID) throws IOException, ParseException {
         List<Tender> tendersInfo = new ArrayList<>();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         Document doc = Jsoup.connect(url).timeout(10*1000).get();
