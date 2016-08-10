@@ -12,4 +12,5 @@
     <include file="006-ktz-purchasing-parties.xml" relativeToChangelogFile="true"/>
     <include file="007-procurement-items-new-columns.xml" relativeToChangelogFile="true"/>
     <include file="008-tenant-user-tables.xml" relativeToChangelogFile="true"/>
+    <include file="009-alter-tender-lots.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

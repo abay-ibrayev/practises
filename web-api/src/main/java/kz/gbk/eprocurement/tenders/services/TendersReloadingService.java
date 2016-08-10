@@ -22,11 +22,9 @@ import java.util.List;
 @Transactional
 public class TendersReloadingService {
 
-    private static Logger logger = LoggerFactory.getLogger(TendersReloadingService.class);
     private static final String TENDER_URL = "http://tender.sk.kz/index.php/ru/negs/";
     private static final String TENDER_LOT_URL = "http://tender.sk.kz/index.php/ru/negs/show/";
-
-
+    private static Logger logger = LoggerFactory.getLogger(TendersReloadingService.class);
     @Autowired
     private TenderRepository tenderRepository;
 
@@ -37,34 +35,32 @@ public class TendersReloadingService {
     private TenderParser tenderParser;
 
     public void reload(int startPage, int endPage) throws IOException, ParseException {
-        Long lastId = tenderRepository.getLastOneId();
         tenderRepository.deleteAll();
-        Tender lastOne= null;
-        for (int i = startPage * 10; i <= endPage * 10; i += 10) {
-            List<Tender> myList = tenderParser.parseTenders(TENDER_URL + i, lastOne, lastId);
-            lastOne = myList.get(myList.size() - 1);
-            for(Tender tender : myList){
-                logger.info("SAVE TO DATABASE TENDER " +tender.getTenderId()+ " " + tender.getTenderName());
+
+        for (int pageNum = startPage * 10; pageNum <= endPage * 10; pageNum += 10) {
+            List<Tender> myList = tenderParser.parseTenders(TENDER_URL, pageNum);
+
+            for (Tender tender : myList) {
+                logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
+                System.out.println(tender.getTenderId());
                 tenderRepository.saveAndFlush(tender);
             }
         }
-        for (Long link : tenderRepository.getAllTenderIds()) {
+
+        for (Long id : tenderRepository.getAllTenderIds()) {
             try {
-                Tender tender = tenderRepository.findByTenderId(link);
+                Tender tender = tenderRepository.findOne(id);
 
-                List<TenderLot> lots = lotParser.parseLots(TENDER_LOT_URL, link);
+                List<TenderLot> lots = lotParser.parseLots(TENDER_LOT_URL, tender.getTenderId());
 
-                lots.forEach(tenderLot -> { tender.addTenderLot(tenderLot);});
+                lots.forEach(tenderLot -> tender.addTenderLot(tenderLot));
 
                 tenderRepository.saveAndFlush(tender);
 
 
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("An error occurred while parsing tender lots", e);
             }
-
         }
-
-
     }
 }
