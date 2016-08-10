@@ -42,7 +42,6 @@ angular.module('EProc.Common')
                 }
             }
 
-
             service.getPathToRoot = function (purchaserId) {
                 var path = [];
 
@@ -60,6 +59,13 @@ angular.module('EProc.Common')
                 path.unshift({'id': 0, 'label': 'Организации'});
 
                 return path;
+            }
+
+            service.addChildrenParties = function (parentPartyId, addChildrenPartiesCmd) {
+                return $http.post(EndpointConfigService.getUrl(MODEL) + '/' + parentPartyId, addChildrenPartiesCmd)
+                    .then(function (result) {
+                        return result.data;
+                    });
             }
 
             service._findPurchaser = function (purchaserId, collection) {

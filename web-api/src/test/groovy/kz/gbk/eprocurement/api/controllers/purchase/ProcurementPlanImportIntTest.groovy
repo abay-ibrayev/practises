@@ -27,8 +27,10 @@ import org.springframework.util.LinkedMultiValueMap
 @ActiveProfiles('integration')
 @TestExecutionListeners([DependencyInjectionTestExecutionListener.class,
         DbUnitTestExecutionListener.class])
-@DatabaseSetup("/kz/gbk/eprocurement/purchase/repository/purchasingPartyDs.xml")
+@DatabaseSetup('/kz/gbk/eprocurement/purchase/repository/purchasingPartyDs.xml')
 class ProcurementPlanImportIntTest {
+
+    private static final String CTX_PATH = '/backend/api'
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -44,7 +46,7 @@ class ProcurementPlanImportIntTest {
 
         HttpEntity<ImportProcurementPlanCmd> requestEntity = new HttpEntity<>(cmd, headers)
 
-        restTemplate.postForObject("/api/$partyId/procurement/plans", requestEntity, ImportProcurementPlanCmd.class)
+        restTemplate.postForObject("$CTX_PATH/$partyId/procurement/plans", requestEntity, ImportProcurementPlanCmd.class)
     }
 
     private FileMetaData uploadSamplePlan() {
@@ -56,7 +58,7 @@ class ProcurementPlanImportIntTest {
 
         HttpEntity requestEntity = new HttpEntity(model, headers)
 
-        ResponseEntity<FileMetaData> result = restTemplate.postForEntity('/api/files/upload', requestEntity,
+        ResponseEntity<FileMetaData> result = restTemplate.postForEntity("$CTX_PATH/files/upload", requestEntity,
                 FileMetaData.class)
 
         return result.body

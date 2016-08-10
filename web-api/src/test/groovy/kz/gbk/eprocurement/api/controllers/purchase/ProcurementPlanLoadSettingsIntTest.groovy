@@ -45,15 +45,13 @@ class ProcurementPlanLoadSettingsIntTest {
 
         HttpEntity<ProcurementPlanLoadSettings> requestEntity = new HttpEntity<>(settings, headers)
 
-        String url = "/api/procurement/plan/settings/$partyId"
+        String url = "/backend/api/procurement/plan/settings/$partyId"
 
         ResponseEntity responseEntity1 = restTemplate.postForEntity(url, requestEntity, String.class)
 
         assertEquals(HttpStatus.CREATED, responseEntity1.statusCode)
 
         ResponseEntity<ProcurementPlanLoadSettings> responseEntity2 = restTemplate.getForEntity(url, ProcurementPlanLoadSettings.class)
-
-        println responseEntity2
 
         assertNotNull(responseEntity2.body)
     }

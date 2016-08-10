@@ -37,6 +37,33 @@ angular.module('EProcAdmin')
                 _retrieveChildren($scope, purchaser);
             }
 
+            $scope.addChildrenParties = function () {
+                var addChildrenModal = $uibModal.open({
+                    animation: false,
+                    templateUrl: 'client/components/admin/tmpl/addChildrenParties.html',
+                    controller: 'addChildrenPartiesCtrl',
+                    size: 'md',
+                    resolve: {
+                        purchaser: function () {
+                            return $scope.purchaser;
+                        }
+                    }
+                });
+
+                addChildrenModal.result.then(function (addChildrenPartiesCmd) {
+                    $log.info("add children cmd: ", addChildrenPartiesCmd);
+
+                    PurchasingPartyQueryModel.addChildrenParties($scope.purchaser.id, addChildrenPartiesCmd)
+                        .then(function (result) {
+                            $log.info(result);
+                        }, function (result) {
+                            $log.info(result);
+                        });
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
+            }
+
             $scope.goTopLevel = function () {
                 if ($scope.currentParentId == null) {
                     return;
@@ -189,6 +216,29 @@ angular.module('EProcAdmin')
 
             $scope.ok = function () {
                 $uibModalInstance.close($scope.procPlanSettings);
+            };
+
+            $scope.cancel = function () {
+                $uibModalInstance.dismiss('cancel');
+            };
+        }])
+    .controller('addChildrenPartiesCtrl', ['$scope', '$uibModalInstance', 'purchaser',
+        function ($scope, $uibModalInstance, purchaser) {
+            $scope.purchaser = purchaser;
+
+            $scope.childrenPartiesModel = '';
+
+            $scope.ok = function () {
+                if ($scope.childrenPartiesModel) {
+                    var partyNames = $scope.childrenPartiesModel.split("\n");
+
+                    var addChilrenPartiesCmd = {
+                        'parentPartyId': $scope.purchaser.id,
+                        'childPartyNames': partyNames
+                    }
+
+                    $uibModalInstance.close(addChilrenPartiesCmd);
+                }
             };
 
             $scope.cancel = function () {

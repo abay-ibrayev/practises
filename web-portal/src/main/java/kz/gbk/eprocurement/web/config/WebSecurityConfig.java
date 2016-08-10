@@ -8,18 +8,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
-@EnableOAuth2Sso
+//@EnableOAuth2Sso
 @EnableZuulProxy
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/index.html", "/", "/webjars/**", "/client/**").permitAll()
+                    .antMatchers("/index.html", "/admin", "/admin.html", "/", "/webjars/**", "/client/**", "/api/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                 .csrf()
-                    .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                    .disable();
     }
 
 //    @Bean

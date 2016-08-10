@@ -106,7 +106,7 @@ class ProcurementPlanExcelReader implements ProcurementPlanReader {
                 int columnNum = NumberUtils.isNumber(columnRef) ? NumberUtils.toInt(columnRef) - 1
                         : settings.getColumnNumberByName(columnRef)
                 if (columnNum < 0) {
-                    itemLoadStatus.failedStatusCell(LoadErrorKind.COLUMN_WRONG_INDEX)
+                    itemLoadStatus.failedStatusCell(attr, LoadErrorKind.COLUMN_WRONG_INDEX)
                     continue
                 }
                 Cell cell = row.getCell(columnNum)

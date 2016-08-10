@@ -1,8 +1,8 @@
 package kz.gbk.eprocurement.tenders.repository;
 
+import kz.gbk.eprocurement.api.context.PersistenceContextConfig;
 import kz.gbk.eprocurement.tenders.model.Tender;
 import kz.gbk.eprocurement.tenders.model.TenderLot;
-import kz.gbk.eprocurement.web.api.context.PersistenceContextConfig;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
