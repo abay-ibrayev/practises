@@ -41,18 +41,25 @@ public class UpdateTendersService {
         Tender lastOne = null;
         int i = -10;
         while (true) {
-            List<Tender> myList = tenderParser.parseTenders(TENDER_URL + (i+10), lastOne, lastId);
+
+            List<Tender> myList = tenderParser.parseTenders(TENDER_URL ,(i+10));
+            if (lastOne != null && lastOne.getTenderId().equals(myList.get(0).getTenderId())) {
+                myList.remove(0);
+            }
             lastOne = myList.get(myList.size() - 1);
-            if (lastOne == null) {
-                myList.remove(myList.size() - 1);
-                for(Tender tender : myList){
-                    logger.info("SAVE TO DATABASE TENDER " +tender.getTenderId()+ " " + tender.getTenderName());
-                    tenderRepository.saveAndFlush(tender);
+            for(int j=0; j<myList.size();j++){
+                if (lastId.equals(myList.get(j).getTenderId()) ) {
+                    for(Tender tender : myList.subList(0,j)){
+                        logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
+                        System.out.println(tender.getTenderId());
+                        tenderRepository.saveAndFlush(tender);
+                    }
+                    return;
                 }
-                logger.info(" HERE WE STOP");
-                break;
             }
             for(Tender tender : myList){
+                logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
+                System.out.println(tender.getTenderId());
                 tenderRepository.saveAndFlush(tender);
             }
             for (Long link : tenderRepository.getAllTenderIds()) {
@@ -61,7 +68,7 @@ public class UpdateTendersService {
 
                     List<TenderLot> lots = lotParser.parseLots(TENDER_LOT_URL, link);
 
-                    lots.forEach(tenderLot -> { tender.addTenderLot(tenderLot);});
+                    lots.forEach(tender::addTenderLot);
 
                     tenderRepository.saveAndFlush(tender);
 
