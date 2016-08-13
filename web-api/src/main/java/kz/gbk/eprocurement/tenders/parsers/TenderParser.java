@@ -11,7 +11,5 @@ import java.util.List;
  * Created by abai on 06.08.2016.
  */
 public interface TenderParser {
-    List<Tender> parseTenders(String url, Tender lastOne, Long lastID) throws IOException, ParseException;
-
     List<Tender> parseTenders(String baseUrl, int pageNum) throws IOException, ParseException;
 }

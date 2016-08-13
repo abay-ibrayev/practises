@@ -37,14 +37,19 @@ public class TendersReloadingService {
     public void reload(int startPage, int endPage) throws IOException, ParseException {
         tenderRepository.deleteAll();
 
+        Tender lastOne = null;
         for (int pageNum = startPage * 10; pageNum <= endPage * 10; pageNum += 10) {
             List<Tender> myList = tenderParser.parseTenders(TENDER_URL, pageNum);
 
+            if (lastOne != null && lastOne.getTenderId().equals(myList.get(0).getTenderId())) {
+                myList.remove(0);
+            }
             for (Tender tender : myList) {
                 logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
                 System.out.println(tender.getTenderId());
                 tenderRepository.saveAndFlush(tender);
             }
+            lastOne = myList.get(myList.size() - 1);
         }
 
         for (Long id : tenderRepository.getAllTenderIds()) {
@@ -53,7 +58,7 @@ public class TendersReloadingService {
 
                 List<TenderLot> lots = lotParser.parseLots(TENDER_LOT_URL, tender.getTenderId());
 
-                lots.forEach(tenderLot -> tender.addTenderLot(tenderLot));
+                lots.forEach(tender::addTenderLot);
 
                 tenderRepository.saveAndFlush(tender);
 

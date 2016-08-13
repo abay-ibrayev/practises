@@ -13,12 +13,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = {
         "kz.gbk.eprocurement.purchase.repository",
         "kz.gbk.eprocurement.profile.repository",
-        "kz.gbk.eprocurement.tenders.repository"
+        "kz.gbk.eprocurement.tenders.repository",
+        "kz.gbk.eprocurement.gswdata.repository"
 })
 @EntityScan({
         "kz.gbk.eprocurement.purchase.model",
         "kz.gbk.eprocurement.profile.model",
-        "kz.gbk.eprocurement.tenders.model"
+        "kz.gbk.eprocurement.tenders.model",
+        "kz.gbk.eprocurement.gswdata.model"
 })
 @Import({DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 public class PersistenceContextConfig {

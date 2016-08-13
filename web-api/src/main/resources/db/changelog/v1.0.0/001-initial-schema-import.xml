@@ -127,5 +127,20 @@
                                  baseColumnNames="tender_id" constraintName="fk_tender_lots"
                                  referencedTableName="tenders" referencedColumnNames="id"/>
     </changeSet>
+    <changeSet id="8" author="lgdt">
+        <createTable tableName="gsw_data">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="unique_code" type="varchar(255)"/>
+            <column name="name" type="varchar(4000)"/>
+            <column name="description" type="varchar(4000)"/>
+            <column name="measurement_units" type="varchar(255)"/>
+            <column name="MKEI_code" type="varchar(255)"/>
+            <column name="old_code" type="varchar(255)"/>
+            <column name="translation" type="varchar(255)"/>
+        </createTable>
+        <createSequence sequenceName="gsw_data_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
 
 </databaseChangeLog>

@@ -7,6 +7,7 @@ import kz.gbk.eprocurement.tenders.model.Tender;
 import kz.gbk.eprocurement.tenders.model.TenderLot;
 import kz.gbk.eprocurement.tenders.parsers.LotParser;
 import kz.gbk.eprocurement.tenders.parsers.TenderParser;
+import org.apache.poi.sl.draw.geom.IfElseExpression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,32 +42,38 @@ public class UpdateTendersService {
         Tender lastOne = null;
         int i = -10;
         while (true) {
-
             List<Tender> myList = tenderParser.parseTenders(TENDER_URL ,(i+10));
             if (lastOne != null && lastOne.getTenderId().equals(myList.get(0).getTenderId())) {
                 myList.remove(0);
             }
             lastOne = myList.get(myList.size() - 1);
+            Boolean IWantToFindEnd = false;
             for(int j=0; j<myList.size();j++){
-                if (lastId.equals(myList.get(j).getTenderId()) ) {
+                if (lastId.equals(myList.get(j).getTenderId()) ) {//check lastId from database to current and stop
                     for(Tender tender : myList.subList(0,j)){
                         logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
                         System.out.println(tender.getTenderId());
                         tenderRepository.saveAndFlush(tender);
+                        IWantToFindEnd = true;
                     }
-                    return;
+
                 }
             }
-            for(Tender tender : myList){
-                logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
-                System.out.println(tender.getTenderId());
-                tenderRepository.saveAndFlush(tender);
+            if(!IWantToFindEnd) {
+                for (Tender tender : myList) {
+                    logger.info("SAVE TO DATABASE TENDER " + tender.getTenderId() + " " + tender.getTenderName());
+                    System.out.println(tender.getTenderId());
+                    tenderRepository.saveAndFlush(tender);
+                }
             }
             for (Long link : tenderRepository.getAllTenderIds()) {
                 try {
                     Tender tender = tenderRepository.findByTenderId(link);
 
                     List<TenderLot> lots = lotParser.parseLots(TENDER_LOT_URL, link);
+
+                    logger.info(lots.size()+ "aJHShlihsflshldiuhsaldhsaldgasldgastydffuugsaugKSHDSKDFSDFSDF");
+
 
                     lots.forEach(tender::addTenderLot);
 
@@ -75,7 +82,9 @@ public class UpdateTendersService {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+            }
+            if(IWantToFindEnd){
+                return;
             }
 
         }
